@@ -1,0 +1,172 @@
+<style>
+
+    #outer-grid2 {
+        display: grid;
+        padding: 2px;
+        grid-gap: 0px;
+        grid-template-areas:
+        'ah2 ah2 ah2 ai2 ah3 ah3 ai3'
+        'ao1 ao1 ao1 ah7 au3 ao4 ah8'
+        'ao1 ao1 ao1 ah7 au3 ao4 ah8'
+        'ao2 ao2 ao2 ah7 au3 ao4 ah8'
+        'ao2 ao2 ao2 ah7 au3 ao4 ah8'
+        'ah1 ah1 ah1 ai1 ah4 ah4 ai4'
+        'au5 au5 ao6 ah5 ao7 ao8 ah6'
+        'au5 au5 ao6 ah5 ao7 ao8 ah6'
+        'au5 au5 ao6 ah5 ao7 ao8 ah6';
+        background-color: black;
+        width: 582px;/*1000px*/
+        height: 397px;/*800px*/
+        grid-template-rows: 30px 42px 42px 42px 42px 30px 56px 56px 56px;
+        grid-template-columns: 125px 125px 80px 45px 80px 80px 45px;
+        font-size: 13px;
+        margin: auto;
+    }
+
+
+    .map2 > .h1{ grid-area: ah1; }
+    .map2 >.h2{ grid-area: ah2; }
+    .map2 >.h3{ grid-area: ah3; }
+    .map2 >.h4{ grid-area: ah4; }
+    .map2 >.h5{ grid-area: ah5; }
+    .map2 >.h6{ grid-area: ah6; }
+    .map2 >.h7{ grid-area: ah7; }
+    .map2 >.h8{ grid-area: ah8; }
+    .map2 >.i1{ grid-area: ai1; }
+    .map2 >.i2{ grid-area: ai2; }
+    .map2 >.i3{ grid-area: ai3; }
+    .map2 >.i4{ grid-area: ai4; }
+
+    .map2 >.h1,.map2 >.h2,.map2 >.h3,.map2 >.h4,.map2 >.h5,.map2 >.h6,.map2 >.h7,.map2 >.h8,.map2 >.i1,.map2 >.i2,.map2 >.i3,.map2 >.i4 {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .map2 >.area1 {
+        grid-area: ao1;
+        padding: 0px 2px 2px 0px;
+        border-top-color: #ff0000;
+        border-top-width: 2px;
+        border-top-style: solid;
+    }
+    .map2 >.area2 {
+        grid-area: ao2;
+        padding: 0px 2px 0px 0px;
+        border-bottom-color: #ff0000;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+    }
+    .map2 >.area3 {
+        grid-area: au3;
+        padding: 2px 0px 2px 0px;
+        border-left-color: #ff0000;
+        border-left-width: 2px;
+        border-left-style: solid;
+
+    }
+    .map2 >.area4 {
+        grid-area: ao4;
+        padding: 2px 0px 2px 2px;
+        border-right-color: #ff0000;
+        border-right-width: 2px;
+        border-right-style: solid;
+    }
+    .map2 >.area5 {
+        grid-area: au5;
+        padding: 0px 0px 0px 0px;
+        border-top-color: #ff0000;
+        border-top-width: 2px;
+        border-top-style: solid;
+    }
+    .map2 >.area6 {
+        grid-area: ao6;
+        padding: 2px 0px 0px 2px;
+        border-right-color: #ff0000;
+        border-right-width: 2px;
+        border-right-style: solid;
+    }
+    .map2 >.area7 {
+        grid-area: ao7;
+        padding: 2px 2px 0px 0px;
+        border-left-color: #ff0000;
+        border-left-width: 2px;
+        border-left-style: solid;
+    }
+    .map2 >.area8 {
+        grid-area: ao8;
+        padding: 2px 0px 0px 0px;
+        border-right-color: #ff0000;
+        border-right-width: 2px;
+        border-right-style: solid;
+    }
+
+    .map2 >.area1, .map2 >.area2, .map2 >.area3,.map2 > .area4, .map2 >.area5, .map2 >.area6, .map2 >.area7, .map2 >.area8 {
+
+        text-align: center;
+        background-color: black;
+        display: grid;
+        grid-gap: 2px;
+    }
+
+
+
+    .map2 > #ao1 > div,.map2 > #ao2 > div,.map2 >#ao3 > div,.map2 >#ao4 > div,.map2 >#ao5 > div,.map2 >#ao6 > div,.map2 >#ao7 > div,.map2 >#ao8 > div {
+        font-size: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .map2 > #ao1 > div { grid-row: 1;}
+    .map2 > #ao2 > div { grid-row: 1;}
+    .map2 > #au5 > div { grid-row: 1;}
+    .map2 > #au3 > div { grid-column: 1;}
+    .map2 > #ao4 > div { grid-column: 1;}
+    .map2 > #ao8 > div { grid-column: 1;}
+    .map2 > #ao7 > div { grid-column: 1;}
+
+</style>
+<div id="outer-grid2" class="map2">
+
+    <div class="h1">H1</div>
+    <div class="h2">H2</div>
+    <div class="h3">H3</div>
+    <div class="h4">H4</div>
+    <div class="h5">H5</div>
+    <div class="h6">H6</div>
+    <div class="h7">H7</div>
+    <div class="h8">H8</div>
+    <div class="i1">I1</div>
+    <div class="i2">I2</div>
+    <div class="i3">I3</div>
+    <div class="i4">I4</div>
+    <div  class="area1" id="ao1">
+        <div>Sous-espace bureau 1</div>
+    </div>
+    <div  class="area2" id="ao2">
+        <div>Sous-espace bureau 2</div>
+    </div>
+    <div  class="area3" id="ao3">
+        <div>Sous-espace utilitaire 1</div>
+    </div>
+    <div  class="area4" id="ao4">
+        <div>Sous-espace bureau 3</div>
+    </div>
+    <div  class="area5" id="ao5">
+        <div>Sous-espace utilitaire 2</div>
+    </div>
+    <div  class="area6" id="ao6">
+        <div>Sous-espace bureau 4</div>
+    </div>
+    <div  class="area7" id="ao7">
+        <div>Sous-espace bureau 5</div>
+    </div>
+    <div  class="area8" id="ao8">
+        <div>Sous-espace bureau 6</div>
+    </div>
+
+</div>
+

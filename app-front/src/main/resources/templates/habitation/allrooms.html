@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymleaf/Layout" layout:decorate="habitation/template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+    <form>
+        <input type = "button" value = "Retour!"  onclick = "history.back()">
+    </form>
+
+
+    <div layout:fragment="pageContent">
+        <div class="container mt-5">
+            <figure class="highcharts-figure">
+                <div><h4 class="text-success">Consommation totale instantanée de votre habitation: <span id="consototal"></span></h4></div>
+                <div id="chartallrooms">
+
+                </div>
+                <p class="highcharts-description">
+
+                </p>
+            </figure>
+
+
+            <div class="card">
+            <div class="card-header">Liste des pièces</div>
+                <div class="card-body">
+
+
+                    <div th:each="p:${rooms}"class="card" style="margin-top: 15px">
+                        <div class="card-header" th:text="${p.roomName}"></div>
+                        <div class="card-body">
+                            <p> Surface en m² : <span  th:text="${p.surface}"></span></p>
+                            <p> Nombre des fenetres : <span  th:text="${p.nbWindows}"></span></p>
+<!--                            <center><p> Consommation en temps réel: <span class="text-success" th:id="${pStat.index}"></span></p></center>-->
+                            <center><p> Consommation en temps réel: <span class="text-success" th:id="${p.roomName}"></span></p></center>
+
+
+                            <center><a th:href="@{/habitation/rooms(roomid=${p.idRoom})}" class="btn btn-success">Consulter</a></center>
+
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+        </div>
+
+</div>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+.wrapper, .card-wrapper {
+    height: 100%;
+    background-color: #bcbaba;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.card {
+    border-radius: 25px;
+    box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+
+.card-wrapper:hover .card {
+    filter: blur(15px);
+    transform: scale(0.9);
+    opactiy: 0.5;
+    transition: 0.9s;
+}
+
+.card-wrapper .card:hover {
+    filter: blur(0);
+    transform: scale(1);
+    opactiy: 1;
+    transition: 0.9s;
+}
+
+
+#circle {
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+    background-color: #000000;
+    transform: rotate(70deg);
+}
+
+#triangle {
+    height: 25%;
+    width: 25%;
+    background-color: #000000;
+    border-radius: 20px;
+    transform: rotate(70deg);
+}

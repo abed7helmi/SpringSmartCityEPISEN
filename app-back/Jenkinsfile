@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('deploy'){
+            steps{
+                echo "deploying"
+                sh 'scp /var/lib/jenkins/.m2/repository/com/pds/smartUs/BackEnd/app-back/0.0.1-SNAPSHOT/app-back-0.0.1-SNAPSHOT.jar toto@172.31.249.161:/tmp'
+                sh 'ssh toto@172.31.249.161 /opt/prod/scripts/update-jar.sh'
+            }
+        }
+    }   
+}

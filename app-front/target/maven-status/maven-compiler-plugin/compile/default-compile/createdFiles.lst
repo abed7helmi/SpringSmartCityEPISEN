@@ -1,0 +1,14 @@
+pds/smartus/frontend/controllers/habitation/habitantController.class
+pds/smartus/frontend/repositories/habitation/ProducteurProxy$1.class
+pds/smartus/frontend/repositories/dwp/Model.class
+pds/smartus/frontend/repositories/smartgrid/Model.class
+pds/smartus/frontend/CustomProperties.class
+pds/smartus/frontend/entities/Production.class
+pds/smartus/frontend/repositories/habitation/ProducteurProxy.class
+pds/smartus/frontend/controllers/smartgrid/Model.class
+pds/smartus/frontend/entities/Producteur.class
+pds/smartus/frontend/controllers/dwp/Model.class
+pds/smartus/frontend/services/dwp/Model.class
+pds/smartus/frontend/services/habitation/ProducteurService.class
+pds/smartus/frontend/services/smartgrid/Model.class
+pds/smartus/frontend/FrontEndApplication.class

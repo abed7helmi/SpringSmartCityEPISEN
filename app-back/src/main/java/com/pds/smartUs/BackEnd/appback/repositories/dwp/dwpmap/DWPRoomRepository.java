@@ -1,0 +1,9 @@
+package com.pds.smartUs.BackEnd.appback.repositories.dwp.dwpmap;
+
+import com.pds.smartUs.BackEnd.appback.entities.dwpmap.DWP_Room;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface DWPRoomRepository extends CrudRepository<DWP_Room,Integer>, DWPRoomRepositoryCustom {
+}

@@ -1,0 +1,120 @@
+/*Public*/
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.page {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 6% 93.5%;
+}
+
+.page-header {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 -1px 4px black;
+}
+
+.page-body {
+    height: 100%;
+    width: 100%;
+}
+
+/*Page Private*/
+
+#prototype-page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#p-header-lTitle {
+    margin-left: 0.4%;
+    color: rgb(34, 43, 119);
+}
+
+#p-header-rTitle {
+    margin-right: 0.4%;
+    color: rgb(34, 43, 119);
+}
+
+#prototype-page-body {
+    display: grid;
+    grid-template-rows: 4% 96%;
+}
+
+#pp-body-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#ppi-link {
+    margin-right: 10px;
+}
+
+#pp-body-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prototype-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+    height: 350px;
+    border: 1px rgba(0, 0, 0, 0.137) solid;
+}
+
+#pfi-title {
+    text-align: center;
+    border-bottom: 1px rgba(0, 0, 0, 0.123) solid;
+    margin-bottom: 5px;
+    height: 15%;
+}
+
+.prototype-form-item {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+input[type="text"] {
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    height: 40px;
+    padding-left: 1%;
+    background: rgba(184, 184, 184, 0.274);
+}
+
+button {
+    outline: none;
+    border: none;
+    width: 250px;
+    height: 30px;
+    color: white;
+    background: black;
+    margin-bottom: 10px;
+    align-self: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+label {
+    margin-bottom: 5px;
+}

@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "pds.smartus.backend",
+      "type": "pds.smartus.frontend.properties.CustomProperties",
+      "sourceType": "pds.smartus.frontend.properties.CustomProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "pds.smartus.backend.api-url",
+      "type": "java.lang.String",
+      "sourceType": "pds.smartus.frontend.properties.CustomProperties"
+    }
+  ],
+  "hints": []
+}

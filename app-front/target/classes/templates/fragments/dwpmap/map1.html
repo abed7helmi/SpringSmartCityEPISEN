@@ -1,0 +1,103 @@
+<link th:href="@{/styles/dwp/dwpmap/map1.css}" rel="stylesheet" />
+
+    <div id="outer-grid">
+
+        <div th:switch="${action}" th:case="findPath" style="position: absolute;">
+            <svg xmlns="http://www.w3.org/2000/svg" id="path" width="1160" height="794">
+                <defs>
+                    <marker id="arrowhead" markerWidth="5" markerHeight="7"
+                            refX="0" refY="3.5" orient="auto" fill="red">
+                        <polygon points="0 0, 5 3.5, 0 7" />
+                    </marker>
+                </defs>
+                <path id="dynamic_path" d=""/>
+            </svg>
+        </div>
+
+        <div class="h1">H1</div>
+        <div class="h2">H2</div>
+        <div class="h3">H3</div>
+        <div class="h4">H4</div>
+        <div class="h5">H5</div>
+        <div class="h6">H6</div>
+        <div class="h7">H7</div>
+        <div class="h8">H8</div>
+        <div class="h9">H9</div>
+        <div class="h10">H10</div>
+        <div class="h11">H11</div>
+        <div class="h12">H12</div>
+
+        <div class="i1">I1</div>
+        <div class="i2">I2</div>
+        <div class="i3">I3</div>
+        <div class="i4">I4</div>
+        <div class="i5">I5</div>
+        <div class="i6">I6</div>
+        <div class="i7">I7</div>
+        <div class="i8">I8</div>
+        <div class="i9">I9</div>
+
+        <div class="area1" id="ao1" capacity="334" direction="vertical" hallway="13" id-area="9">
+            <div class="room" th:each="room : ${roomsAO1}" th:style="'height:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area2" id="ao2" capacity="326" direction="horizontal" hallway="10" id-area="10">
+            <div class="room" th:each="room : ${roomsAO2}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area3" id="ao3" capacity="326" direction="horizontal" hallway="12" id-area="11">
+            <div class="room" th:each="room : ${roomsAO3}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area4" id="ao4" capacity="334" direction="vertical" hallway="15" id-area="12">
+            <div class="room" th:each="room : ${roomsAO4}" th:style="'height:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area5" id="ao5" capacity="326" direction="horizontal" hallway="16" id-area="13">
+            <div class="room" th:each="room : ${roomsAO5}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area6" id="ao6" capacity="326" direction="horizontal" hallway="17" id-area="14">
+            <div class="room" th:each="room : ${roomsAO6}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area7" id="ao7" capacity="334" direction="vertical" hallway="18" id-area="15">
+            <div class="room" th:each="room : ${roomsAO7}" th:style="'height:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area8" id="ao8" capacity="326" direction="horizontal" hallway="16" id-area="16">
+            <div class="room" th:each="room : ${roomsAO8}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+
+        <div  class="area9" id="ao9" capacity="326" direction="horizontal" hallway="17" id-area="17">
+            <div class="room" th:each="room : ${roomsAO9}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area10" id="ao10" capacity="334" direction="vertical" hallway="20" id-area="18">
+            <div class="room" th:each="room : ${roomsAO10}" th:style="'height:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area11" id="ao11" capacity="326" direction="horizontal" hallway="21" id-area="19">
+            <div class="room" th:each="room : ${roomsAO11}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+        <div  class="area12" id="ao12" capacity="326" direction="horizontal" hallway="22" id-area="20">
+            <div class="room" th:each="room : ${roomsAO12}" th:style="'width:'+${room.getWidthInPixel()}+'px;'" th:attr="data-width=${room.getWidth()},data-height=${room.getHeight()},data-id-room=${room.getId_room()},data-type-room=${room.getRoom_type()},data-name-room=${room.getRoom_name()}">
+                <span th:text="${room.getRoom_type() + '_' + room.getId_room()}"></span>
+            </div>
+        </div>
+
+    </div>
+

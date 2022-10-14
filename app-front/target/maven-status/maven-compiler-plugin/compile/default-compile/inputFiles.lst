@@ -1,0 +1,13 @@
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/controllers/smartgrid/Model.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/services/habitation/ProducteurService.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/FrontEndApplication.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/entities/Production.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/controllers/dwp/Model.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/repositories/dwp/Model.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/entities/Producteur.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/repositories/habitation/ProducteurProxy.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/services/dwp/Model.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/services/smartgrid/Model.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/controllers/habitation/habitantController.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/CustomProperties.java
+/home/episen/Helmi/Projet_PDS2/app-front/src/main/java/pds/smartus/frontend/repositories/smartgrid/Model.java

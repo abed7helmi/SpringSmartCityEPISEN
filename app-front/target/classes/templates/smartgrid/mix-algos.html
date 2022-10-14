@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infos de production</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link th:href="@{/styles/public-style.css}" rel="stylesheet"> -->
+    <link th:href="@{/styles/page-header.css}" rel="stylesheet">
+    <!-- <link th:href="@{/styles/smartgrid/production-informations.css}" rel="stylesheet"> -->
+    <link th:href="@{/styles/smartgrid/mix-algos.css}" rel="stylesheet">
+
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+    <body>
+
+        <header>
+            <div th:replace="fragments/smartgrid/header :: header"></div>
+        </header>
+
+
+        <div class="container-fluid" style="height: 100%;">
+            <div class="row" style="height: 10%">
+                <h3 class="mix-title text-center" style="margin: 0 5% 1% 0">Algorithmes de répartition énergétique</h3>
+            </div>
+            <div class="row" style="height: 10%">
+                <span class="table-title " style="margin: 0 5% 1% 0">Algorithme actuellement en cours d'utilisation :
+                    <label id="algo-in-use"> Arbitraire </label>
+                </span>
+            </div>
+
+
+            <div class="row" style="height: 50%; border: 1px white solid;">
+                <!--  Default Algo -->
+                <div class="col " style="border: 1px white solid;">
+                    <div class="row" style="height: 9%; ">
+                        <h4 class="table-title"> Paramètres actuels l'algorithme arbitraire </h4>
+                    </div>
+                    <div class="row" style="margin-left: 1%">
+                        <table class="table" id="energy-prioritization" style="width: 80%">
+                            <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Type d'énergie</th>
+                                <th scope="col">Position</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="margin-top: 2%; margin-left: 1%">
+                        <div class="col" >
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#defaultAlgoModal">Choisir l'algorithme arbitraire </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#learnMoreDefaultAlgo">En savoir plus sur cet algorithme </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Percentage Algo -->
+                <div class="col" style="border: 1px white solid;">
+                    <div class="row" style="height: 9%">
+                        <h4 class="table-title"> Paramètres actuels de l'algorithme pourcentage </h4>
+                    </div>
+                    <div class="row" style="margin-left: 1%">
+                        <table class="table" id="energy-percentage" style="width: 80%">
+                            <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Type d'énergie </th>
+                                <th scope="col">Pourcentage</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="margin-top: 2%; margin-left: 1%">
+                        <div class="col">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#percentageAlgoModal">Choisir l'algorithme pourcentage </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#learnMorePercentageAlgo">En savoir plus sur cet algorithme </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-top: 2%; height: 70%">
+
+                <!--  Economic Algo -->
+                <div class="col "  style="border: 1px white solid;">
+                    <div class="row" style="height: 9%; margin-left: 0%">
+                        <h4 class="table-title"> Algorithme économique </h4>
+                    </div>
+                    <div class="row " style="height: 70%">
+                        <div class="responsive-chart" style="height:25vh; width:35vw">
+                            <canvas id="economic-line-chart" width="150" height="100"></canvas>
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.6.2/Chart.js"></script>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row" style="margin-top: 1%; margin-left: 1%">
+                            <div class="col">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#economicAlgoModal">Choisir l'algorithme économique </button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#learnMoreEconomicAlgo">En savoir plus sur cet algorithme </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Environmental Algo -->
+                <div class="col">
+                    <div class="row" style="height: 9%; margin-left: 0%">
+                        <h4 class="table-title"> Algorithme environnemental </h4>
+                    </div>
+                    <div class="row " style="height: 70%">
+                        <div class="responsive-chart" style="height:25vh; width:35vw">
+                            <canvas id="environmental-line-chart" width="150" height="100"></canvas>
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.6.2/Chart.js"></script>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row" style="margin-top: 1%; margin-left: 1%">
+                            <div class="col">
+
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#environmentalAlgoModal">Choisir l'algorithme environnemental </button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#learnMoreEnvironmentalAlgo">En savoir plus sur cet algorithme </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Percentage Algorithm modal-->
+            <div class="modal fade" id="percentageAlgoModal" tabindex="-1">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme par ratio</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <b>Veuillez chosir le pourcentage d'utilisation de chaque type d'énergie (La somme doit être égale à 100)</b>
+                                </div>
+                                <div class="row" style="margin-top: 2%">
+                                    <div class="col">
+                                        Pourcentage d'éolien (%)
+                                    </div>
+                                    <div class="col">
+                                        Pourcentage de solaire (%)
+                                    </div>
+                                    <div class="col">
+                                        Pourcentage d'hydraulique (%)
+                                    </div>
+                                    <div class="col">
+                                        Pourcentage de géothermique (%)
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%">
+                                    <div class="col">
+                                        <input type="text" class="form-control percentage-algo" id="percentage1" placeholder="0">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control percentage-algo" id="percentage2" placeholder="0">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control percentage-algo" id="percentage3" placeholder="0">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control percentage-algo" id="percentage4" placeholder="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col" id="error-percentage" style="display: none; color: red;"> La somme des pourcentages doit être égale à 100</div>
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary" onclick="activatePercentageAlgo()"> Oui</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Default Algo modal -->
+            <div class="modal fade" id="defaultAlgoModal" tabindex="-1">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme arbitraire</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div>
+                                    <b>Veuillez choisir la priorité entre les différents types d'énergie</b>
+                                </div>
+                                <div class="row" style="margin-top: 2%">
+                                    <div class="col">
+                                        Priorité 1
+                                    </div>
+                                    <div class="col">
+                                        Priorité 2
+                                    </div>
+                                    <div class="col">
+                                        Priorité 3
+                                    </div>
+                                    <div class="col">
+                                        Priorité 4
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 2%">
+                                    <div class="col">
+                                        <select class="form-select" id="priority1" aria-label="Default select example"  style="width: 100%">
+
+                                            <option value="0" selected>Énergie éolienne</option>
+                                            <option value="1">Énergie solaire</option>
+                                            <option value="2">Énergie hydraulique</option>
+                                            <option value="3">Énergie geothermique</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" id="priority2" aria-label="Default select example"  style="width: 100%">
+                                            <option value="4" disabled selected>Sélectionnez </option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" id="priority3" aria-label="Default select example"  style="width: 100%">
+                                            <option value="4" disabled selected>Sélectionnez </option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" id="priority4" aria-label="Default select example"  style="width: 100%">
+                                            <option value="4" disabled selected>Sélectionnez </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal" >Fermer</button>
+                            <button type="button" class="btn btn-primary" onclick="activateDefaultAlgo()"> Oui</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Economic Algo Modal-->
+            <div class="modal fade" id="economicAlgoModal" tabindex="-1">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme Économique</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Voulez-vous utiliser l'algorithme économique ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal" >Fermer</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="activateEcoAlgo()"> Oui</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Algo Modal-->
+            <div class="modal fade" id="environmentalAlgoModal" tabindex="-1">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme Environnemental</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Voulez-vous utiliser l'algorithme environnemental ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal" >Fermer</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="activateEnvironmentalAlgo()"> Oui</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learn more about Default Algo-->
+            <div class="modal fade" id="learnMoreDefaultAlgo" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme arbitraire</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p> Cet algorithme fonctionne avec un ordre de priorité des énergies que vous aurez défini.
+                                Cet ordre peut être par exemple ( énergie solaire --> énergie éolienne --> énergie géothermique -->énergie hydraulique).
+                            </p>
+                            <p>
+                                Les sites de production de l'énergie que vous aurez jugé prioritaire seront puisés jusqu'à satisfaire la demande de la Smartgrid.
+                                Si cela n'est pas suffisant, l'algo puisera dans les sites de production de l'énergie que vous aurez jugé second dans
+                                l'ordre de priorité. Et ainsi de suite jusqu'à ce la demande soit satisfaite.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learn more about Percentage Algo-->
+            <div class="modal fade" id="learnMorePercentageAlgo" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Algorithme pourcentage</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Cet algorithme va puiser pour chaque type d'énergie, la proportion de la demande que vous aurez définie au préalable.</p>
+                            <p> Si certains sites de production ne permettent pas de produire pleinement la quantité demandée,
+                            alors l'algo puisera d'abord dans les sites de production éolien puis solaire, hydraulique et enfin géothermique.
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learn more about Economic Algo-->
+            <div class="modal fade" id="learnMoreEconomicAlgo" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme économique</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p> Cet algorithme a pour but de minimiser le cout de production de l'énergie demandée par la Smartgrid </p>
+                            <p> Le cout unitaire de chaque énergie est modélisé par une fonction mathématique :</p>
+                            <ul>
+                                <li> Énergie éolienne : 4+ln(10x)</li>
+                                <li> Énergie solaire : 5 exp(-1/4x) + 8</li>
+                                <li> Énergie hydraulique : -1/20x + 14</li>
+                                <li> Énergie géothermique : 16</li>
+                            </ul>
+                            <p> A chaque intersection entre deux courbes, la priorisation des énergies change
+                                (c'est à dire que l'algo va puiser l'énergie prioritaire jusqu'à satisfaire la demande de la Smartgrid et si ce n'est pas suffisant, elle va puiser dans la seconde énergie la plus prioritaire et ainsi de suite).
+                                Par exemple, si la demande de la SmartGrid est inférieur à 100 kW, la priorité sera (éolien --> solaire --> hydraulique --> géothermique).
+                                Et si la demande est comprise entre 100 et 700 kW, la priorité sera (solaire --> éolien --> hydraulique --> géothermique) etc..
+
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learn more about Environmental Algo-->
+            <div class="modal fade" id="learnMoreEnvironmentalAlgo" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Algorithme environnemental</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p> Cet algorithme va puiser dans les sites de production de l'énergie la moins couteuse pour l'environnement.
+                                Si cela ne permet pas de satisfaire la demande de la SmartGrid, l'algorithme va puiser dans les sites de production
+                                de la seconde énergie la moins couteuse pour l'environnement. Et ainsi de suite jusqu'a satisfaire la demande
+                                de la SmartGrid.
+                            </p>
+                            <p>
+                                Ce classement se base sur la quantité de Co2 en grammes par kWH émise pour chaque type d'énergie. Le calcul prend en compte
+                                les combustibles utilisés pour produire l’électricité ainsi que la construction et l’entretien des centrales de production et des réseaux de transport et de distribution.
+                            </p>
+                            Quantité d'émissions de CO2 pour chaque type d'énergie :
+                            <ul>
+                                <li> Énergie éolienne : 12 g de CO2/kWh</li>
+                                <li> Énergie solaire : 41 g de CO2/kWh</li>
+                                <li> Énergie hydraulique : 6 g de CO2/kWh</li>
+                                <li> Énergie géothermique : 45 g de CO2/kWh</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script th:src="@{/js/smartgrid/mix-algos.js}"></script>
+    </body>
+</html>
+
+
+
+<!--onchange="setDropdowns(value, 1)"-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="row" style="height: 14%">
+                <h2 class="display-6 col text-center" style="margin-left: 5%"> Algorithmes de répartition énergétique </h2>
+            </div>
+            <div class="row" style="height: 17%; margin-left: 3%">
+                <h4 class="col display-6" > Algo
+                    <label id="algo-in-use"> 15h40 </label> de
+                    <label id="amount"> 3500 </label>
+                    kW</h4>
+            </div>
+            <div class="row " style="height: 55%; margin-left: 3%">
+                <div class="col">
+                    <h4 class="text-center" style="font-family: Georgia, serif; height: 10%"> Priorisation de la production </h4>
+                    <table class="table" id="energy-prioritization">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Position</th>
+                            <th scope="col">Site de production</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+
+                    <div class="row" style="margin-top: 12%">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#historyModal">Consulter les dernières répartitions </button>
+                    </div>
+                    <div class="row" style="margin-top: 2%">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#defaultAlgoModal">Algorithme arbitraire </button>
+                    </div>
+                    <div class="row" style="margin-top: 2%">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#economicAlgoModal">Algorithme économique </button>
+                    </div>
+                    <div class="row" style="margin-top: 2%">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#percentageAlgoModal"> Algorithme pourcentage </button>
+                    </div>
+
+
+                </div>
+
+                <div class="modal fade" id="economicAlgoModal" tabindex="-1">
+                    <div class="modal-dialog ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Algorithme Économique</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Voulez-vous utiliser l'algorithme économique ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-bs-dismiss="modal" >Fermer</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="activateEcoAlgo()"> Oui</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="percentageAlgoModal" tabindex="-1">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Algorithme par ratio</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <b>Veuillez chosir le pourcentage d'utilisation de chaque type d'énergie (La somme doit être égale à 100)</b>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%">
+                                        <div class="col">
+                                            Pourcentage d'éolien (%)
+                                        </div>
+                                        <div class="col">
+                                            Pourcentage de solaire (%)
+                                        </div>
+                                        <div class="col">
+                                            Pourcentage d'hydraulique (%)
+                                        </div>
+                                        <div class="col">
+                                            Pourcentage de géothermique (%)
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%">
+                                        <div class="col">
+                                            <input type="text" class="form-control percentage-algo" id="percentage1" placeholder="">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control percentage-algo" id="percentage2" placeholder="">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control percentage-algo" id="percentage3" placeholder=" ">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control percentage-algo" id="percentage4" placeholder=" ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="col" id="error-percentage" style="display: none; color: red;"> La somme des pourcentages doit être égale à 100</div>
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-primary" onclick="activatePercentageAlgo()"> Oui</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>-->

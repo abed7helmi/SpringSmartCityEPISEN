@@ -1,0 +1,186 @@
+body{
+    margin: auto;
+    text-align: center;
+
+}
+#reconfigure{
+    margin-top: 30px;
+}
+#outer-grid {
+    display: grid;
+    padding: 2px;
+    grid-gap: 0px;
+    /*grid-template-areas:
+    'ao1 ao1 ao1'
+    'ah1 ah1 ah1'
+    'ao2 ao2 ao2';*/
+    grid-template-areas:
+                'ai1 ah1 ah1 ai2 ah2 ah2 ai3'
+                'ah3 ao1 ao2 ah4 ao3 ao4 ah5'
+                'ah3 ao1 ao5 ah4 ao6 ao4 ah5'
+                'ai4 ah6 ah6 ai5 ah7 ah7 ai6'
+                'ah8 ao7 ao8 ah9 ao9 ao10 ah10'
+                'ah8 ao7 ao11 ah9 ao12 ao10 ah10'
+                'ai7 ah11 ah11 ai8 ah12 ah12 ai9';
+    background-color: black;
+    width: 1180px;/*1000px*/
+    height: 794px;/*800px*/
+    grid-template-rows: 40px 168px 168px 40px 168px 168px 40px;
+    grid-template-columns: 68px 160px 328px 68px 328px 160px 68px;
+    font-size: 13px;
+    margin: auto;
+    transform: scale(0.8);
+    transform-origin: top;
+}
+
+.h1{ grid-area: ah1; }
+.h2{ grid-area: ah2; }
+.h3{ grid-area: ah3; }
+.h4{ grid-area: ah4; }
+.h5{ grid-area: ah5; }
+.h6{ grid-area: ah6; }
+.h7{ grid-area: ah7; }
+.h8{ grid-area: ah8; }
+.h9{ grid-area: ah9; }
+.h10{ grid-area: ah10; }
+.h11{ grid-area: ah11; }
+.h12{ grid-area: ah12; }
+.i1{ grid-area: ai1; }
+.i2{ grid-area: ai2; }
+.i3{ grid-area: ai3; }
+.i4{ grid-area: ai4; }
+.i5{ grid-area: ai5; }
+.i6{ grid-area: ai6; }
+.i7{ grid-area: ai7; }
+.i8{ grid-area: ai8; }
+.i9{ grid-area: ai9; }
+
+.h1,.h2,.h3,.h4,.h5,.h6,.h7,.h8,.h9,.h10,.h11,.h12,.i1,.i2,.i3,.i4,.i5,.i6,.i7,.i8,.i9{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.area1 {
+    grid-area: ao1;
+    padding: 1px 0px 1px 0px;
+    border-left-color: #ff0000;
+    border-left-width: 2px;
+    border-left-style: solid;
+}
+.area2 {
+    grid-area: ao2;
+    padding: 0px 1px 0px 1px;
+    border-top-color: #ff0000;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.area3 {
+    grid-area: ao3;
+    padding: 0px 0px 1px 1px;
+    border-top-color: #ff0000;
+    border-top-width: 2px;
+    border-top-style: solid;
+
+}
+.area4 {
+    grid-area: ao4;
+    padding: 1px 0px 1px 1px;
+    border-right-color: #ff0000;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+.area5 {
+    grid-area: ao5;
+    padding: 1px 1px 0px 1px;
+    border-bottom-color: #ff0000;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+.area6 {
+    grid-area: ao6;
+    padding: 0px 0px 0px 1px;
+    border-bottom-color: #ff0000;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+.area7 {
+    grid-area: ao7;
+    padding: 1px 0px 1px 0px;
+    border-left-color: #ff0000;
+    border-left-width: 2px;
+    border-left-style: solid;
+}
+.area8 {
+    grid-area: ao8;
+    padding: 0px 1px 0px 1px;
+    border-top-color: #ff0000;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.area9 {
+    grid-area: ao9;
+    padding: 0px 1px 0px 1px;
+    border-top-color: #ff0000;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.area10 {
+    grid-area: ao10;
+    padding: 1px 0px 1px 0px;
+    border-right-color: #ff0000;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+.area11 {
+    grid-area: ao11;
+    padding: 1px 1px 0px 1px;
+    border-bottom-color: #ff0000;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+
+}
+.area12 {
+    grid-area: ao12;
+    padding: 1px 1px 0px 1px;
+    border-bottom-color: #ff0000;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+.area1, .area2, .area3, .area4, .area5, .area6, .area7, .area8,.area9,.area10,.area11,.area12 {
+    text-align: center;
+    background-color: white;
+}
+
+
+
+#ao2,#ao1,#ao3,#ao4,#ao5,#ao6,#ao7,#ao8,#ao9,#ao10,#ao11,#ao12{
+    text-align: center;
+    background-color: black;
+    display: grid;
+    grid-gap: 1px;
+
+}
+#ao1 > div, #ao2 > div,#ao3 > div,#ao4 > div,#ao5 > div,#ao6 > div,#ao7 > div,#ao8 > div
+,#ao9 > div,#ao10 > div,#ao11 > div,#ao12 > div{
+    font-size: 80%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ao2 > div { grid-row: 1;}
+#ao3 > div { grid-row: 1;}
+#ao5 > div { grid-row: 1;}
+#ao6 > div { grid-row: 1;}
+#ao8 > div { grid-row: 1;}
+#ao9 > div { grid-row: 1;}
+#ao11 > div { grid-row: 1;}
+#ao12 > div { grid-row: 1;}
+#ao1 > div { grid-column: 1;}
+#ao4 > div { grid-column: 1;}
+#ao7 > div { grid-column: 1;}
+#ao10 > div { grid-column: 1;}

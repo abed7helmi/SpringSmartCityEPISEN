@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(32, 32, 59);
+}
+
+.container-selectDWP{
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
+.select-form{
+    width: 80%;
+    height: 50%;
+    margin: auto;
+}
+
+h1{
+    font-family: 'Catamaran', sans-serif;
+    color: #2A2B2A;
+    text-align: center;
+    font-size:1.3em;
+    padding-top: 25px;
+}
+.listLabel {
+    padding-bottom: 5px;
+    padding-top: 40px;
+}
+.label{
+    font-family: 'Catamaran', sans-serif;
+    padding-right: 50px;
+    padding-left: 100px;
+}
+.selectList {
+    padding-left: 100px;
+    padding-right: 30px;
+}
+
+select{
+    padding-right: 10px;
+    padding-left: 10px;
+}

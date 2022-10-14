@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link th:href="@{/styles/dwp/use.monitor/devices.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>ConsommantionsSalles</title>
+</head>
+<body>
+<div class="page">
+    <div class="page-header" id="prototype-page-header">
+        <a th:href="@{/reservation}" th:style="'text-decoration: none;'"><h3 id="p-header-lTitle">Employee View</h3></a>
+        <h3 id="date_heure" style="margin-left: 10px; color: rgb(34, 43, 119);" th:text="${date_heure}"></h3>
+    </div>
+    <div>
+        <div id="roomnumber">
+            <h2>Vue SG</h2>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%" id="tableConsoRoom">
+        <h5>Equipements consommant de l'énergie dans la salle:</h5>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID Room</th>
+                <th scope="col">Type</th>
+                <th scope="col">Derniere conso</th>
+                <th scope="col">Consommation totale</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="consoRoom: ${consoRooms.iterator()}">
+                <span th:if="${consoRoom[3]!=0}">
+                <span id="idEq" style="display: none;" th:text="${consoRoom[0]}"/>
+                <td th:text="${consoRoom[0]}"/>
+                <td th:text="${consoRoom[1]}"/>
+                <td th:text="${consoRoom[2]}"/>
+                    <span th:if="${consoRoom[1] =='BI'}">
+                    <span th:if="${consoRoom[3] >= 2400}">
+                <td style="color: darkred" th:text="${consoRoom[3]+ ' Dépassement !'}"/>
+                        </span>
+                    <span th:if="${consoRoom[3] < 2400}">
+                        <td th:text="${consoRoom[3]}"/>
+                    </span>
+                        </span>
+                    <span th:if="${consoRoom[1] =='SR'}">
+                    <span th:if="${consoRoom[3] >= 2250}">
+                <td style="color: darkred" th:text="${consoRoom[3]+ ' Dépassement !'}"/>
+                        </span>
+                    <span th:if="${consoRoom[3] < 2250}">
+                        <td th:text="${consoRoom[3]}"/>
+                    </span>
+                        </span>
+                    <span th:if="${consoRoom[1] =='OS'}">
+                    <span th:if="${consoRoom[3] >= 2300}">
+                <td style="color: darkred" th:text="${consoRoom[3]+ ' Dépassement !'}"/>
+                        </span>
+                    <span th:if="${consoRoom[3] < 2300}">
+                        <td th:text="${consoRoom[3]}"/>
+                    </span>
+                        </span>
+                    </span>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-left: 5px; margin-top: 20px">
+        <button id="refresh" class="btn btn-primary" type="submit">Rafraichir</button>
+    </div><div style="margin-left: 5px; margin-top: 20px">
+    <a th:href="@{/login}">
+        <button class="btn btn-danger" type="submit">Déconnexion</button>
+    </a>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script th:src="@{/js/dwp/use.monitor/consoRoom.js}"></script>
+</div>
+
+</body>
+</html>

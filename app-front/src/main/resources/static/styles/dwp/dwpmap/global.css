@@ -1,0 +1,41 @@
+.room {
+    cursor: pointer;
+}
+
+.room-menu {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+
+.room-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.room-menu ul > a {
+    color: #000;
+    text-decoration: none;
+}
+
+.room-menu ul > a > li {
+    padding: 10px;
+    min-width: 150px;
+}
+
+.room-menu ul > a > li:hover {
+    background: #dfe1e5;
+}
+
+.hide {
+    display: none;
+}
+h1{
+    font-family: 'Catamaran', sans-serif;
+    color: #2A2B2A;
+    text-align: center;
+    font-size:1.3em;
+    padding-top: 25px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/styles/dwp/dwpmap/global.css}" rel="stylesheet" />
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+
+    <title>Carte du DigitalWorkSpace</title>
+</head>
+<body>
+<div class="main">
+    <header>
+        <div th:replace="fragments/smartgrid/header :: header"></div>
+    </header>
+    <h1>Carte du DWP du bâtiment <span th:text="${building_name}"></span>, Étage <span th:text="${floor_name}"></span></h1>
+
+    <div style="padding-bottom: 25px;" th:switch="${action}">
+        <div th:case="findPath" style="position: relative;">
+            <h4>Trouver le chemin :</h4>
+            <span>Salle de départ :</span>
+                <select id="roomsList1">
+                    <option th:each="room: ${rooms}"
+                            th:value="${room.getId_room()}"
+                            th:text="${room.getRoom_type() + '_' + room.getId_room()}"></option>
+                </select>
+               <span style="padding-left: 20px;">Destination :</span>
+            <select id="roomsList2">
+                    <option th:each="room: ${rooms}"
+                            th:value="${room.getId_room()}"
+                            th:text="${room.getRoom_type() + '_' + room.getId_room()}"></option>
+                </select>
+
+            <button onclick="findPath();">Trouver</button>
+        </div>
+    </div>
+
+    <div th:insert="${fragment_url}"></div>
+
+<div th:switch="${action}" th:case="showMap" class="room-menu hide">
+    <ul><!-- Mettre class="id-room" sur les <a> auxquels on souhaite rajouter l'id de la room à la fin de l'url -->
+        <!-- Remplacer "/actionX" par votre url(sachant que l'id room se rajoute à la fin de cet url si vous mettez la classe id-room)
+        pour rediriger vers votre scope et remplacer BOUTON X par le nom de ton bouton-->
+        <!-- Mettre class="type-room-?" dont ? est = sr(salle de réunion) ou os(openspace) ou bi(bureau individuelle)
+             qui correspond aux salles qui vous intéresse. Regardez exemples en bas : -->
+        <a class="id-room type-room-os type-room-bi type-room-sr hide" th:href="@{/configureBI}"><li>Configurer la salle</li></a>
+        <!--BOUTON 1 va apparaître quand vous cliquez sur les salles de type : openspace ou bureau indiv ou salle de réunion-->
+         <a class="id-room" th:href="@{/action2}"><li>BOUTON 2</li></a>
+        <!--BOUTON 2 APPARAIT PEU IMPORTE SUR CE QUE VOUS CLIQUEZ -->
+        <a class="id-room type-room-sr type-room-bi hide" th:href="@{/action3}"><li>BOUTON 3</li></a>
+        <!-- BOUTON 3 apparaît que quand vous click sur les salles de type : salle de réunion ou bureau indiv-->
+        <a class="id-room type-room-sr hide" th:href="@{/action4}"><li>BOUTON 4</li></a>
+        <!-- BOUTON 4 apparaît que quand vous click sur les salles de réunion -->
+    </ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/dwp/dwpmap/global.js}"></script>
+</body>
+</html>

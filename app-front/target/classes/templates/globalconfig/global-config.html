@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Variables</title>
+    <link rel="stylesheet" th:href="@{/styles/globalconfig/global-config.css}">
+    <script th:src="@{/js/globalconfig/global-config.js}"></script>
+
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+</head>
+<body>
+    <header>
+        <div th:replace="fragments/smartgrid/header :: header"></div>
+    </header>
+
+    <section id="config-page-body">
+
+        <h3 style="text-align: center">Informations générales</h3>
+        <section id="info-table-section">
+            <table class="config-tables" id="info-table">
+                <thead>
+                    <tr>
+                        <th style="width: 140px">Composante</th>
+                        <th style="width: 140px">Paramètres</th>
+                        <th>INTEGRATION</th>
+                        <th>PRÉ-PROD</th>
+                        <th>PRODUCTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="vertical-head">BackEnd</td>
+                        <td>Adresses IPs</td>
+                        <td>172.31.249.161</td>
+                        <td>172.31.249.224</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>Ports</td>
+                        <td>8080</td>
+                        <td>8080</td>
+                        <td>--</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="vertical-head">FrontEnd</td>
+                        <td>Adresses IPs</td>
+                        <td>172.31.249.231</td>
+                        <td>172.31.249.72</td>
+                        <td>--</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ports</td>
+                        <td>8080</td>
+                        <td>8080</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="vertical-head">Base de Données</td>
+                        <td>Adresses IPs</td>
+                        <td>172.31.249.128</td>
+                        <td>172.31.249.41</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>Ports</td>
+                        <td>5432</td>
+                        <td>5432</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <h3 style="text-align: center">Variables Globales</h3>
+        <section id="configs-table-section">
+            <table class="config-tables" id="config-table">
+                <thead>
+                    <tr>
+                        <th>Paramètres Globaux</th>
+                        <th colspan="2">Valeurs Actuelles</th>
+                    </tr>
+                </thead>
+                <tbody id="config-table-values">
+                    <!-- Generated Dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </section>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<style>
+
+
+    #outer-grid1 {
+        display: grid;
+        padding: 2px;
+        grid-gap: 0px;
+
+        grid-template-areas:
+                'ai1 ah1 ah1 ai2 ah2 ah2 ai3'
+                'ah3 ao1 ao2 ah4 ao3 ao4 ah5'
+                'ah3 ao1 ao5 ah4 ao6 ao4 ah5'
+                'ai4 ah6 ah6 ai5 ah7 ah7 ai6'
+                'ah8 ao7 ao8 ah9 ao9 ao10 ah10'
+                'ah8 ao7 ao11 ah9 ao12 ao10 ah10'
+                'ai7 ah11 ah11 ai8 ah12 ah12 ai9';
+        background-color: black;
+        width: 586px;
+        height: 397px;
+        grid-template-rows: 20px 84px 84px 20px 84px 84px 20px;
+        grid-template-columns: 34px 80px 162px 32px 162px 80px 34px;
+        font-size: 13px;
+        margin: auto;
+    }
+
+    .map1 >.h1{ grid-area: ah1; }
+    .map1 >.h2{ grid-area: ah2; }
+    .map1 >.h3{ grid-area: ah3; }
+    .map1 >.h4{ grid-area: ah4; }
+    .map1 >.h5{ grid-area: ah5; }
+    .map1 >.h6{ grid-area: ah6; }
+    .map1 >.h7{ grid-area: ah7; }
+    .map1 >.h8{ grid-area: ah8; }
+    .map1 >.h9{ grid-area: ah9; }
+    .map1 >.h10{ grid-area: ah10; }
+    .map1 >.h11{ grid-area: ah11; }
+    .map1 >.h12{ grid-area: ah12; }
+    .map1 >.i1{ grid-area: ai1; }
+    .map1 >.i2{ grid-area: ai2; }
+    .map1 > .i3{ grid-area: ai3; }
+    .map1 >.i4{ grid-area: ai4; }
+    .map1 >.i5{ grid-area: ai5; }
+    .map1 >.i6{ grid-area: ai6; }
+    .map1 >.i7{ grid-area: ai7; }
+    .map1 > .i8{ grid-area: ai8; }
+    .map1 > .i9{ grid-area: ai9; }
+
+    .map1 >.h1,.map1 >.h2,.map1 >.h3,.map1 >.h4,.map1 >.h5,.map1 >.h6,.map1 >.h7,.map1 >.h8,.map1 >.h9,
+    .map1 >.h10,.map1 >.h11,.map1 >.h12,.map1 >.i1,.map1 >.i2,.map1 >.i3,.map1 >.i4,.map1 >.i5,.map1 >.i6,.map1 >.i7,
+    .map1 >.i8,.map1 >.i9{
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .map1 >.area1 {
+        grid-area: ao1;
+        padding: 1px 0px 1px 0px;
+        border-left-color: #ff0000;
+        border-left-width: 2px;
+        border-left-style: solid;
+    }
+    .map1 > .area2 {
+        grid-area: ao2;
+        padding: 0px 1px 0px 1px;
+        border-top-color: #ff0000;
+        border-top-width: 2px;
+        border-top-style: solid;
+    }
+    .map1 >.area3 {
+        grid-area: ao3;
+        padding: 0px 0px 1px 1px;
+        border-top-color: #ff0000;
+        border-top-width: 2px;
+        border-top-style: solid;
+
+    }
+    .map1 >.area4 {
+        grid-area: ao4;
+        padding: 1px 0px 1px 1px;
+        border-right-color: #ff0000;
+        border-right-width: 2px;
+        border-right-style: solid;
+    }
+    .map1 > .area5 {
+        grid-area: ao5;
+        padding: 1px 1px 0px 1px;
+        border-bottom-color: #ff0000;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+    }
+    .map1 >.area6 {
+        grid-area: ao6;
+        padding: 0px 0px 0px 1px;
+        border-bottom-color: #ff0000;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+    }
+    .map1 >.area7 {
+        grid-area: ao7;
+        padding: 1px 0px 1px 0px;
+        border-left-color: #ff0000;
+        border-left-width: 2px;
+        border-left-style: solid;
+    }
+    .map1 > .area8 {
+        grid-area: ao8;
+        padding: 0px 1px 0px 1px;
+        border-top-color: #ff0000;
+        border-top-width: 2px;
+        border-top-style: solid;
+    }
+    .map1 >.area9 {
+        grid-area: ao9;
+        padding: 0px 1px 0px 1px;
+        border-top-color: #ff0000;
+        border-top-width: 2px;
+        border-top-style: solid;
+    }
+    .map1 >.area10 {
+        grid-area: ao10;
+        padding: 1px 0px 1px 0px;
+        border-right-color: #ff0000;
+        border-right-width: 2px;
+        border-right-style: solid;
+    }
+    .map1 > .area11 {
+        grid-area: ao11;
+        padding: 1px 1px 0px 1px;
+        border-bottom-color: #ff0000;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+
+    }
+    .map1 > .area12 {
+        grid-area: ao12;
+        padding: 1px 1px 0px 1px;
+        border-bottom-color: #ff0000;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+    }
+
+    .map1 >.area1, .map1 >.area2, .map1 >.area3, .map1 >.area4, .map1 >.area5,
+    .map1 >.area6, .map1 >.area7, .map1 >.area8,.map1 >.area9,.map1 >.area10,.map1 >.area11,
+    .map1 >.area12 {
+        text-align: center;
+        background-color: black;
+        display: grid;
+        grid-gap: 1px;
+    }
+
+
+
+    .map1 >#ao1 > div,.map1 > #ao2 > div,.map1 >#ao3 > div,.map1 >#ao4 > div,.map1 >#ao5 > div,
+    .map1 >#ao6 > div,.map1 >#ao7 > div,.map1 >#ao8 > div
+    ,.map1 >#ao9 > div,.map1 >#ao10 > div,.map1 >#ao11 > div,.map1 >#ao12 > div{
+        font-size: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .map1 > #ao2 > div { grid-row: 1;}
+    .map1 > #ao3 > div { grid-row: 1;}
+    .map1 > #ao5 > div { grid-row: 1;}
+    .map1 > #ao6 > div { grid-row: 1;}
+    .map1 > #ao8 > div { grid-row: 1;}
+    .map1 >  #ao9 > div { grid-row: 1;}
+    .map1 >  #ao11 > div { grid-row: 1;}
+    .map1 >  #ao12 > div { grid-row: 1;}
+    .map1 >  #ao1 > div { grid-column: 1;}
+    .map1 > #ao4 > div { grid-column: 1;}
+    .map1 > #ao7 > div { grid-column: 1;}
+    .map1 > #ao10 > div { grid-column: 1;}
+</style>
+
+<div id="outer-grid1" class="map1">
+
+    <div class="h1">H1</div>
+    <div class="h2">H2</div>
+    <div class="h3">H3</div>
+    <div class="h4">H4</div>
+    <div class="h5">H5</div>
+    <div class="h6">H6</div>
+    <div class="h7">H7</div>
+    <div class="h8">H8</div>
+    <div class="h9">H9</div>
+    <div class="h10">H10</div>
+    <div class="h11">H11</div>
+    <div class="h12">H12</div>
+
+    <div class="i1">I1</div>
+    <div class="i2">I2</div>
+    <div class="i3">I3</div>
+    <div class="i4">I4</div>
+    <div class="i5">I5</div>
+    <div class="i6">I6</div>
+    <div class="i7">I7</div>
+    <div class="i8">I8</div>
+    <div class="i9">I9</div>
+
+    <div  class="area1" id="ao1">
+        <div>Sous-espace bureau 1</div>
+    </div>
+    <div  class="area2" id="ao2">
+        <div>Sous-espace bureau 2</div>
+    </div>
+    <div  class="area3" id="ao3">
+        <div>Sous-espace bureau 3</div>
+    </div>
+    <div  class="area4" id="ao4">
+        <div>Sous-espace bureau 4</div>
+    </div>
+    <div  class="area5" id="ao5">
+        <div>Sous-espace bureau 5</div>
+    </div>
+    <div  class="area6" id="ao6">
+        <div>Sous-espace bureau 6</div>
+    </div>
+    <div  class="area7" id="ao7">
+        <div>Sous-espace bureau 7</div>
+    </div>
+    <div  class="area8" id="ao8">
+        <div>Sous-espace bureau 8</div>
+    </div>
+
+    <div  class="area9" id="ao9">
+        <div>Sous-espace bureau 9</div>
+    </div>
+    <div  class="area10" id="ao10">
+        <div>Sous-espace bureau 10</div>
+    </div>
+    <div  class="area11" id="ao11">
+        <div>Sous-espace bureau 11</div>
+    </div>
+    <div  class="area12" id="ao12">
+        <div>Sous-espace bureau 12</div>
+    </div>
+
+</div>

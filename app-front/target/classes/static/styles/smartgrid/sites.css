@@ -1,0 +1,46 @@
+#site-body {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.site-body-item {
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.site-body-subitem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 2%;
+}
+
+.site-body-subitem h3 {
+    color: crimson;
+}
+
+#site-body-left {
+}
+
+#site-body-right {
+}
+
+#sbleft-top {
+    border-right: 1px rgba(0, 0, 0, 0.44) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.44) solid;
+}
+
+#sbleft-down {
+    border-right: 1px rgba(0, 0, 0, 0.44) solid;
+}
+
+#sbright-top {
+    border-bottom: 1px rgba(0, 0, 0, 0.44) solid;
+}
+
+#sbright-down {
+}

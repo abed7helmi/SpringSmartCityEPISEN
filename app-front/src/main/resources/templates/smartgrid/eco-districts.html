@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eco Districts</title>
+
+    <link th:href="@{/styles/fragments/smartgrid/header.css}" rel="stylesheet" />
+    <link th:href="@{/styles/smartgrid/eco-districts.css}" rel="stylesheet" />
+    <script th:src="@{/js/smartgrid/eco-districts.js}"></script>
+
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+
+</head>
+<body>
+<header id="">
+    <div th:replace="fragments/smartgrid/header :: header-black"></div>
+</header>
+
+<section id="sg-dashboard-links">
+    <a href="dashboard">Dashboard view</a>
+</section>
+
+<section id="sg-dashboard-body">
+    <section id="list-eco-districts">
+    </section>
+</section>
+
+<script>updatePage()</script>
+</body>
+</html>

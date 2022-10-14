@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="Reservations"></title>
+    <link th:href="@{/styles/dwp/use.monitor/menu.css}" rel="stylesheet"/>
+    <!--<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div th:replace="fragments/smartgrid/header :: header"></div>
+    </header>
+
+    <h4 style="text-align: center">Employee View</h4>
+
+    <h5 style="margin-left: 20px; margin-top: 20px">Vos réservations de salles :</h5>
+    <table class="table" style="margin-left: 50px; margin-right: 1500px; margin-top: 20px">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">N° du DWP</th>
+            <th scope="col">Type du DWP</th>
+            <th scope="col">Gérer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reservation: ${reservations}">
+            <td th:text="${reservation.getId}"/>
+            <td th:text="${reservation.getId_room()}"/>
+            <td th:text="${reservation.getType_room()}"/>
+            <td th:switch="${reservation.getType_room()}">
+                <a th:case="BI" th:href="@{../configureBI/{id_room}(id_room = ${reservation.getId_room()})}">
+                    <button class="btn btn-primary"> Sélectionner </button>
+                </a>
+                <a th:case="SR" th:href="@{../configureSR/{id_room}(id_room = ${reservation.getId_room()})}">
+                    <button class="btn btn-primary"> Sélectionner </button>
+                </a>
+                <a th:case="OS" th:href="@{../configureSR/{id_room}(id_room = ${reservation.getId_room()})}">
+                    <button class="btn btn-primary"> Sélectionner </button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+<footer>
+    <div style="margin-left: 5px; margin-top: 20px">
+        <a th:href="@{/login}">
+            <button class="btn btn-danger" type="submit">Déconnexion</button>
+        </a>
+    </div>
+</footer>
+</html>
+

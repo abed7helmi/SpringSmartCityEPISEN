@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Production Sites</title>
+        <link th:href="@{/styles/fragments/smartgrid/header.css}" rel="stylesheet" />
+        <link th:href="@{/styles/smartgrid/global-styles.css}" rel="stylesheet" />
+        <link th:href="@{/styles/smartgrid/sites.css}" rel="stylesheet" />
+        <script th:src="@{/js/smartgrid/sites.js}" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="fragments/smartgrid/header :: header(rightTitle='Production Sites')"></div>
+        <div id="site-body">
+            <div id="site-body-left" class="site-body-item">
+                <div id="sbleft-top" class="site-body-subitem">
+                    <h3>Wind Site</h3>
+                    <div>
+                        <p>Production Amount : <label id="wind-pd-amount">0</label>Kw</p>
+                        <p>Max Production Capacity : <label id="wind-pd-max">0</label>Kw</p>
+                        <p>Current Production Capacity : <label id="wind-pd-capacity">0</label>%</p>
+                        <p>Production Delay : <label id="wind-pd-delay">0</label>ms</p>
+                    </div>
+                </div>
+                <div id="sbleft-down" class="site-body-subitem">
+                    <h3>Hydraulic Site</h3>
+                    <div>
+                        <p>Production Amount : <label id="hydraulic-pd-amount">0</label>Kw</p>
+                        <p>Max Production Capacity : <label id="hydraulic-pd-max">0</label>Kw</p>
+                        <p>Current Production Capacity : <label id="hydraulic-pd-capacity">0</label>%</p>
+                        <p>Production Delay : <label id="hydraulic-pd-delay">0</label>ms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="site-body-right" class="site-body-item">
+                <div id="sbright-top" class="site-body-subitem">
+                    <h3>Solar Site</h3>
+                    <div>
+                        <p>Production Amount : <label id="solar-pd-amount">0</label>Kw</p>
+                        <p>Max Production Capacity : <label id="solar-pd-max">0</label>Kw</p>
+                        <p>Current Production Capacity : <label id="solar-pd-capacity">0</label>%</p>
+                        <p>Production Delay : <label id="solar-pd-delay">0</label>ms</p>
+                    </div>
+                </div>
+                <div id="sbright-down" class="site-body-subitem">
+                    <h3>Geothermal Site</h3>
+                    <div>
+                        <p>Production Amount : <label id="geothermal-pd-amount">0</label>Kw</p>
+                        <p>Max Production Capacity : <label id="geothermal-pd-max">0</label>Kw</p>
+                        <p>Current Production Capacity : <label id="geothermal-pd-capacity">0</label>%</p>
+                        <p>Production Delay : <label id="geothermal-pd-delay">0</label>ms</p>
+                        <a href="/productioninfos">Mix energetique</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

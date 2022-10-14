@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification</title>
+    <link th:href="@{/styles/dwp/use.monitor/login.css}" rel="stylesheet"/>
+    <!--<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="page-header" id="prototype-page-header">
+    <h3 id="p-header-lTitle">Digital Workplace Application</h3>
+    <h3 id="p-header-rTitle">PDS SmartUS</h3>
+</div>
+<div style="margin-left: 20px; margin-top: 20px">
+    <form method="get" th:action="@{/checkUser}">
+        <form class="row g-2">
+        <div class="col-auto">
+            <label for="inputPassword2">Login :</label>
+            <input style="margin-top: 20px; width: 20%" class="form-control" id="inputPassword2" name="name" placeholder="Identifiant">
+        </div>
+            <div class="col-auto">
+                <button style="margin-top: 20px" type="submit" class="btn btn-primary mb-3">Connexion</button>
+            </div>
+    </form>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

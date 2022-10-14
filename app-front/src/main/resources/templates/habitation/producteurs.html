@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymleaf/Layout" layout:decorate="habitation/template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div layout:fragment="pageContent">
+
+
+    <div class="container mt-5">
+        <figure class="highcharts-figure">
+            <div><h4 class="text-success">Production instantanée: <span id="sommeLastProd"></span></h4></div>
+            <div id="producteurscharts"></div>
+            <p class="highcharts-description">
+
+            </p>
+        </figure>
+    </div>
+
+
+
+    <div class="container mt-5">
+
+        <div class="card">
+            <div class="card-header">Liste des producteurs</div>
+            <div class="card-body">
+                <table class="table table-dark">
+                    <tr>
+                        <th>Fabricant</th>
+                        <th>Modele</th>
+                        <th>Type</th>
+                        <th>Puissance</th>
+                        <th>Etat</th>
+<!--                        <th>Action</th>-->
+                    </tr>
+
+                    <tr th:each="p:${producteurs}">
+
+                        <td th:text="${p.maker}"></td>
+                        <td th:text="${p.model}"></td>
+                        <td th:text="${p.type}"></td>
+                        <td th:text="${p.power}"></td>
+                        <td th:text="${p.state}"></td>
+<!--                        <td><a onclick="return confirm('Etes vous sur ?')" class="btn btn-success">Consulter</a></td>-->
+
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
+

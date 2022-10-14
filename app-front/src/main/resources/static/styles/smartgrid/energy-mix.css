@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+#page-body {
+    display: grid;
+    grid-template-rows: 6% 94%;
+}
+
+.rect{
+    display: inline-block;
+    margin: 2rem;
+    /*border: solid red 2px*/;
+}
+
+.main-div{
+    display: block;
+    width: 90vw;
+    /*border: solid black 2px;*/
+    margin: 0 5vw;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+#wind{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#solar{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#hydro{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#geo{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+@media screen and (max-width: 600px){
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    #hydro {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+#div1{
+    height: 10%;
+}
+
+
+#h1{
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+#select{
+    margin: 1rem 15rem;
+    height: 50%;
+    width: 15%;
+}
+
+#button{
+    margin: 1rem 10rem;
+    height: 50%;
+    width: 15%;
+}
+
+.mix-title{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 27px;
+}
+
+#responsive-chart{
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/styles/dwp/dwpmap/styles_configuredwp.css}" rel="stylesheet" />
+  <!-- Nav Bar -->
+  <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+  <script th:src="@{/js/common/nav-bar.js}"></script>
+
+  <title>Carte du DigitalWorkSpace</title>
+</head>
+<body>
+  <header>
+    <div th:replace="fragments/smartgrid/header :: header"></div>
+  </header>
+
+  <script th:inline="javascript">
+    var architecture = [[${architecture}]];
+    var configured = [[${configured}]];
+    var id_dwp = [[${id_dwp}]];
+    var architectureStatus = [[${architectureStatus}]];
+    var building_name = [[${building_name}]];
+    var floor_number = [[${floor_name}]];
+    var action = [[${action}]];
+    var id_building = [[${id_building}]];
+  </script>
+  <h1>Configuration du DigitalWorkSpace du bâtiment <span th:text="${building_name}"></span>, Étage <span th:text="${floor_name}"></span></h1>
+
+  <div style="display: flex;">
+      <div th:insert="${fragment_url}"></div>
+      <div class="configMap" style="height: 450px;">
+        <div style="margin-top: 10px;"><button id="return">Retour</button><div>
+          <div style="margin-top: 10px;"><button id="randomize">Générer une configuration aléatoire</button></div>
+        <div style="margin-top: 20px;">
+          <select id="selectArea" th:attr="architecture=${architecture}">
+            <option th:each="area: ${areaList}"
+                    th:value="${area.getLabel()}"
+                    type="text" th:text="${area.getArea_name()}">
+            </option>
+         </select>
+        </div>
+        <div style="height: 284px;">
+          <div id="office-rooms" class="quantity buttons_added" style="display: none">
+            <div type-room="BIT1" name-room="BI" width="1" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Bureau individuel T1 (5m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="office-1">
+            </div>
+            <div type-room="BIT2" name-room="BI" width="2" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Bureau individuel T2 (10m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="office-2">
+            </div>
+            <div type-room="OS" name-room="OS" width="5" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="OpenSpace (25m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="office-3">
+            </div>
+            <div type-room="SR" name-room="SR" width="3" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Salle de réunion (15m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="office-4">
+            </div>
+          </div>
+          <div id="utils-rooms" class="quantity buttons_added" style="display: none">
+            <div type-room="WC" name-room="WC" width="1" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Toilettes (5m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="utils-1">
+            </div>
+            <div type-room="SREP" name-room="SREP" width="5" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Salle de repos (25m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="utils-2">
+            </div>
+            <div type-room="CUISINE" name-room="CUISINE" width="3" height="5" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Cuisine (15m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="utils-3">
+            </div>
+            <div type-room="CNT" name-room="CNT" width="15" height="10" class="roomBtn">
+              <input type="button" value="-" class="minus"><input readonly type="text" value="Cantine (150m²)" class="input-text qty text"><input type="button" value="+" class="plus" id="utils-4">
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 20px;"><button th:switch="${configured}" th:case="true" id="delete" style="margin-right: 10px">Supprimer la configuration</button><button id="confirm" disabled>Valider</button></div>
+      </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script th:src="@{/js/dwp/dwpmap/configuredwp_archi.js}"></script>
+</body>
+</html>

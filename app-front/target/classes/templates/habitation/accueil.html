@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymleaf/Layout" layout:decorate="habitation/template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="pageContent">
+
+
+
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h2 class="modal-title">Mes informations</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <h3>Mes infos personnelles :</h3>
+                        <h6> Nom : <span th:text="${habitation.inhabitant.inhabitantFirstName}"></span> </h6>
+                        <h6> Prenom : <span th:text="${habitation.inhabitant.inhabitantLastName}"></span></h6>
+                        <h6> Email : <span th:text="${habitation.inhabitant.inhabitantEmail }"></span> </h6>
+                    </div>
+                    <hr>
+                    <div>
+                        <h3>Infos habitation :</h3>
+                        <h6> Avenue : <span th:text="${habitation.streetName}"></span> </h6>
+                        <h6> Voie : <span th:text="${habitation.streetNumber}"></span> </h6>
+                        <h6> Code postal : <span th:text="${habitation.zipCode}"></span> </h6>
+                        <h6> Type : <span th:text="${habitation.habitationType}"></span> </h6>
+<!--                        <h6> Nb piéces : <span th:text="${#lists.isEmpty(habitation.houseRooms)}"></span> </h6>-->
+                    </div>
+                    <hr>
+                    <div>
+                        <h3>Infos BEPOS :</h3>
+                        <h6> Nom : <span th:text="${habitation.bepos.name}"></span>  </h6>
+                        <h6> Adresse : <span th:text="${habitation.bepos.adresse}"></span> </h6>
+
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+
+
+        <div>
+            <a class="btn btn-danger float-left ml-auto" style="font-size:15px;">Messages <i class="fa fa-envelope"></i></a>
+            <!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-primary float-right ml-auto" data-toggle="modal" data-target="#myModal">
+                Mes infos
+            </button>
+        </div>
+
+
+        <figure class="highcharts-figure">
+            <div class="row">
+                <div id="habitationcharts" class="col col-lg-6"></div>
+                <div id="habitationcharts2" class="col col-lg-6"></div>
+<!--                <div id="habitationcharts3" class="col col-lg-6"></div>-->
+            </div>
+<!--            <div id="habitationcharts" class="col"></div>-->
+<!--            <div id="habitationchart
+s2"class="col"></div>-->
+
+            <p class="highcharts-description" style="margin-left:25%;font-size: 45px">
+            <p><span style="font-size: 30px">Balance : </span><span id="Balance"></span></p>
+            <p><span style="font-size: 30px">Etat : </span><span id="Etat"></span></p>
+            </p>
+        </figure>
+
+        <div class="row">
+            <div class="col">
+                <a th:href="@{/habitation/consommation/rooms(habitationid=${habitation.idHabitation})}" class=" gradient-button gradient-button-4  ">Consulter Consommation</a>
+
+            </div>
+            <div class="col">
+                <a th:href="@{/habitation/mecomparer(habitationid=${habitation.idHabitation})}" class=" gradient-button gradient-button-4 ">Me comparer</a>
+            </div>
+            <div class="col">
+                <a th:href="@{/habitation/producteurs(beposid=${habitation.bepos.id})}" class=" gradient-button gradient-button-4  ">Production BEPOS</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
+

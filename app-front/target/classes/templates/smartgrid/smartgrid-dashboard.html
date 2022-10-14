@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartGrid Dashboard</title>
+
+  <link th:href="@{/styles/fragments/smartgrid/header.css}" rel="stylesheet" />
+  <link th:href="@{/styles/smartgrid/smartgrid-dashboard.css}" rel="stylesheet" />
+  <script th:src="@{/js/smartgrid/smartgrid-dashboard.js}"></script>
+
+  <!-- Nav Bar -->
+  <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+  <script th:src="@{/js/common/nav-bar.js}"></script>
+
+</head>
+<body>
+  <header id="">
+    <div th:replace="fragments/smartgrid/header :: header-black"></div>
+  </header>
+
+  <section id="sg-dashboard-links">
+    <a href="districts">District view</a>
+  </section>
+
+  <section id="sg-dashboard-body">
+    <!-- Left Section -->
+    <section id="sg-dashboard-left-container">
+      <!-- Energy productions -->
+      <article id="sg-site-productions" class="sg-dashboard-card large-card">
+        <span class="sg-db-card-title">
+          <div class="vertical-sep"></div>
+          <span>Productions</span>
+        </span>
+        <span id="sg-productions-table" class="sg-db-card-body">
+          <table id="productions-table" class="sg-dashboard-table">
+              <thead>
+                <tr>
+                  <th>Nom Site</th>
+                  <th>Énergie Site</th>
+                  <th>Type Énergie</th>
+                  <th>Capacité Max</th>
+                  <th>Production</th>
+                  <th>Temps</th>
+                  <th>Solde Ville</th>
+                </tr>
+              </thead>
+              <tbody id="productions-table-body">
+                  <!-- Generated dynamically -->
+              </tbody>
+          </table>
+        </span>
+      </article>
+
+      <!-- Mix Requests -->
+      <article class="sg-dashboard-card large-card">
+        <span class="sg-db-card-title">
+          <div class="vertical-sep"></div>
+          <span>Demandes Mix</span>
+        </span>
+        <span id="sg-mix-requests" class="sg-db-card-body">
+          <table id="mix-requests-table" class="sg-dashboard-table">
+              <thead>
+                <tr>
+                  <th>Total Solar</th>
+                  <th>Total Wind</th>
+                  <th>Total Hyrdraulic</th>
+                  <th>Total GeoThermal</th>
+                  <th>Total Amount</th>
+                  <th>Request Time</th>
+                </tr>
+              </thead>
+              <tbody id="mix-requests-table-body">
+                <!-- Generated dynamically -->
+              </tbody>
+          </table>
+        </span>
+      </article>
+    </section>
+
+    <!-- Right Section -->
+    <section id="sg-dashboard-right-container">
+      <!-- Frequency -->
+      <article id="sg-frequency-time" class="sg-dashboard-card small-card">
+
+        <span class="sg-db-card-title" style="justify-content: flex-start">
+          <span class="vertical-sep"></span>
+          <span class="label-title">Vitesse du temps :</span>
+          <span id="sg-frequency-reference" style="margin-left: auto; font-size: 20px">
+            <span id="sg-frequency">1</span>
+            <span>heure(s) / minute</span>
+          </span>
+        </span>
+        <span id="sg-frequency-form"
+              style="display: flex; align-items: center; justify-content: flex-end">
+          <span style="height: 100%; width: 1px; background-color: rgba(255,255,255,0.38)"></span>
+          <span style="width: 5%"></span>
+          <div>
+            <label>Fréquences : </label>
+            <select id="sg-frequency-new-value" onchange="setFrequency(value)">
+              <option value="0.5">x0.5</option>
+              <option value="0.7">x0.7</option>
+              <option value="1" selected>x1</option>
+              <option value="2">x2</option>
+              <option value="5">x5</option>
+              <option value="10">x10</option>
+              <option value="12">x12</option>
+              <option value="24">x24</option>
+              <option value="48">x48</option>
+            </select>
+
+            <label> </label>
+            <select id="sg-loading-frequency" onchange="setLoadingFrequency(value)">
+              <option value="0">pause</option>
+              <option value="1" selected>1s</option>
+              <option value="2">2s</option>
+              <option value="5">5s</option>
+              <option value="10">10s</option>
+              <option value="12">20s</option>
+            </select>
+
+          </div>
+          <span style="width: 5%"></span>
+        </span>
+      </article>
+
+      <!-- Balance -->
+      <article id="sg-city-balance" class="sg-dashboard-card small-card">
+
+        <div></div>
+
+        <div class="sg-db-card-title" style="justify-content: space-between">
+          <span style="margin-left: 1%" class="label-title">Solde Énergétique de la Ville :</span>
+
+          <span id="sg-city-solde" class="value-title" style="align-self: center">
+            <!-- Generated Dynamically -->
+          </span>
+
+          <span class="vertical-sep"></span>
+        </div>
+
+        <div style="align-self: center; font-style: italic; font-size: 11px;">
+          <span>Dernière mise à jour :</span>
+          <span id="balance-last-update"></span>
+        </div>
+
+        <div style="height: 10px"></div>
+
+      </article>
+
+      <!-- Params -->
+      <article id="sg-mock-parameters" class="sg-dashboard-card small-card">
+        <span class="mock-param">
+          <img th:src="@{/smartgridassets/temp.png}">
+          <label id="temp-param"></label>
+        </span>
+
+        <span class="mock-param">
+          <img th:src="@{/smartgridassets/wind.png}">
+          <label id="wind-param"></label>
+        </span>
+
+        <span class="mock-param">
+          <img th:src="@{/smartgridassets/rain.png}">
+          <label id="precipitations-param"></label>
+        </span>
+
+        <span class="mock-param">
+          <img th:src="@{/smartgridassets/clouds.png}">
+          <label id="clouds-param"></label>
+        </span>
+
+        <span class="mock-param">
+          <img th:src="@{/smartgridassets/clock.png}">
+          <label id="time-param"></label>
+        </span>
+
+      </article>
+
+      <!-- Capacities -->
+      <article id="sg-site-capacities" class="sg-dashboard-card large-card">
+        <div class="sg-db-card-title">
+          <div class="vertical-sep"></div>
+          <span>Capacités Sites</span>
+        </div>
+        <span class="sg-db-card-body" id="sg-capacities-table">
+          <table id="capacities-table" class="sg-dashboard-table">
+              <thead>
+                <tr>
+                  <th>Nom Site</th>
+                  <th>Énergie Site</th>
+                  <th>Type Énergie</th>
+                  <th>Capacité Max</th>
+                  <th>Capacité Actuelle</th>
+                </tr>
+              </thead>
+              <tbody id="capacities-table-body">
+                  <!-- Generated dynamically -->
+              </tbody>
+          </table>
+        </span>
+      </article>
+    </section>
+
+  </section>
+
+  <script>updatePage()</script>
+</body>
+</html>

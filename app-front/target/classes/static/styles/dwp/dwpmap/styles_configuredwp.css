@@ -1,0 +1,66 @@
+.main{
+  margin: auto;
+  text-align: center;
+}
+body{
+
+}
+.configMap{
+  text-align: center;
+  margin-top: 150px;
+  margin-right:80px;
+  background-color: rgb(32 32 59);
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+}
+/* -- quantity box -- */
+.quantity > div {
+  padding-top: 30px;
+}
+
+.input-text {
+  width: 180px;
+}
+.quantity .input-text.qty {
+
+  height: 39px;
+  padding: 0 5px;
+  text-align: center;
+  background-color: rgb(233, 227, 227);
+  border: 1px solid #efefef;
+}
+.quantity.buttons_added input {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+  padding: 7px 10px 8px;
+  height: 41px;
+  background-color: rgb(40, 32, 87);
+  color: white;
+  border: 1px solid #efefef;
+  cursor:pointer;}
+
+.quantity.buttons_added .minus {
+  border-right: 0; }
+
+.quantity.buttons_added .plus {
+  border-left: 0; }
+
+
+.quantity.buttons_added .plus:hover {
+  background: lightseagreen; }
+.quantity.buttons_added .minus:hover {
+  background: lightsalmon;
+}
+
+
+
+
+
+

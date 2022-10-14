@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.pds.smartUs.BackEnd.appback.services.habitation.ProductionServiceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 3, Time elapsed: 2.51 s <<< FAILURE! - in com.pds.smartUs.BackEnd.appback.services.habitation.ProductionServiceTest
+getProductionsOfProducersShouldReturnAllProducteurWithTheirlast10Productions  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at com.pds.smartUs.BackEnd.appback.services.habitation.ProductionServiceTest.getProductionsOfProducersShouldReturnAllProducteurWithTheirlast10Productions(ProductionServiceTest.java:110)
+

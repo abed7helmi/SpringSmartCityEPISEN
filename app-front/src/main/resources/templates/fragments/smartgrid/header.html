@@ -1,0 +1,49 @@
+<!-- White Nav Bar -->
+
+<div class="nav-bar" id="nav-bar-white" th:fragment="header">
+    <span style="width: 15px"></span>
+    <h3 onclick="takeMeTo('/')">SmartCity</h3>
+    <span style="width: 15px"></span>
+    <span class="nav-links" onclick="takeMeTo('/smartgrid/dashboard')">Monitorer SmartGrid</span>
+    <span class="nav-links" onclick="takeMeTo('/productioninfos')">Visualiser Mix Énergétique</span>
+    <span class="nav-links" onclick="takeMeTo('/mix-algos')">Piloter Mix Énergétique</span>
+    <span class="nav-links" onclick="takeMeTo('/reservation')">Utiliser et Monitorer DWP</span>
+   <span class="nav-links dropdown">
+       Plan du DWP
+        <div class="dropdown-content">
+            <a class="nav-links" onclick="takeMeTo('/selectDWP/showMap')">Visualiser le plan du DWP</a>
+            <a class="nav-links" onclick="takeMeTo('/selectDWP/configMap')">Espace configuration</a>
+            <a class="nav-links" onclick="takeMeTo('/selectDWP/findPath')">Trouver une salle</a>
+      </div>
+   </span>
+    <span class="nav-links" onclick="takeMeTo('/habitation/Auth')">Habitation BEPOS</span>
+    <span class="nav-links" onclick="takeMeTo('/habitation/thresholdHouse')">Alert Dépassement</span>
+    <span class="nav-links" onclick="takeMeTo('/meeting_room')">Salle de Réunion</span>
+</div>
+
+
+
+<!-- Black Nav Bar -->
+
+<div class="nav-bar" id="nav-bar-black" th:fragment="header-black">
+    <span style="width: 15px"></span>
+    <h3 onclick="takeMeTo('/')">SmartCity</h3>
+    <span style="width: 15px"></span>
+    <span class="nav-links" onclick="takeMeTo('/smartgrid/dashboard')">Monitorer SmartGrid</span>
+    <span class="nav-links" onclick="takeMeTo('/productioninfos')">Visualiser Mix Énergétique</span>
+    <span class="nav-links" onclick="takeMeTo('/mix-algos')">Piloter Mix Énergétique</span>
+    <span class="nav-links" onclick="takeMeTo('/reservation')">Utiliser et Monitorer DWP</span>
+    <span class="nav-links dropdown">
+           Plan du DWP
+            <div class="dropdown-content">
+                <a class="nav-links" style="background-color: #212428;" onclick="takeMeTo('/selectDWP/showMap')">Visualiser le plan du DWP</a>
+                <a class="nav-links" style="background-color: #212428;" onclick="takeMeTo('/selectDWP/configMap')">Espace configuration</a>
+                <a class="nav-links" style="background-color: #212428;" onclick="takeMeTo('/selectDWP/findPath')">Trouver une salle</a>
+          </div>
+       </span>
+    <span class="nav-links" onclick="takeMeTo('/habitation')">Habitation BEPOS</span>
+    <span class="nav-links" onclick="takeMeTo('/habitation/thresholdHouse')">Alert Dépassement</span>
+    <span class="nav-links" onclick="takeMeTo('/meeting_room')">Salle de Réunion</span>
+</div>
+
+<!-- No al razzismo! -->

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymleaf/Layout" layout:decorate="habitation/template1">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="pageContent">
+    <div class="col-9 alert alert-success" role="alert" style="margin-left: 250px">
+        Authentification réussie
+    </div>
+
+    <a th:href="@{/habitation(idhabitation=${idhabitation})}" class="btn btn-success" style="margin-left: 250px">Consulter mon espace personnel</a>
+
+
+</div>
+</body>
+</html>
+
+
+

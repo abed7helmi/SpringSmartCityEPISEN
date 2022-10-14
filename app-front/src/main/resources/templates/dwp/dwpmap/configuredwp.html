@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <link th:href="@{/styles/dwp/dwpmap/styles_configuredwp.css}" rel="stylesheet" />
+	<!-- Nav Bar -->
+	<link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+	<script th:src="@{/js/common/nav-bar.js}"></script>
+    <title>Configuration du DWP</title>
+</head>
+<body>
+
+<header>
+	<div th:replace="fragments/smartgrid/header :: header"></div>
+</header>
+
+<div class="main">
+	<h1>Configuration du DigitalWorkSpace du bâtiment <span th:text="${building_name}"></span>, Étage <span th:text="${floor_name}"></span></h1>
+    <div th:switch="${configured}">
+		<span th:case="true">Ce DWP a été déjà configuré : vous pouvez
+			<a th:href="@{/deleteConfig(id_dwp=${id_dwp})}">supprimer la configuration </a>
+			 ou écraser la configuration précédente.
+		</span>
+		<span th:case="false">Ce DWP n'a pas encore été configuré.</span>
+	</div>
+    <form method="post" th:action="@{/configMap(id_dwp=${id_dwp}, building_name=${building_name}, floor_name=${floor_name}, action=${action})}">
+    	<p>Veuillez choisir l'architecture de ce DigitalWorkSpace</p>
+		<div class="radio_archi">
+
+	    <div style="display: flex;gap: 80px;">
+			<label for="archi_1">
+				<div th:insert="fragments/dwpmap/map1miniature"></div>
+				<input type="radio" id="archi_1" th:name="archi" value="1" th:value="1">
+			</label>
+
+			<label for="archi_2">
+				<div th:insert="fragments/dwpmap/map2miniature"></div>
+				<input type="radio" id="archi_2" th:name="archi" value="2" th:value="2">
+			</label>
+		</div>
+
+	   
+	  </div>
+	  <div>
+	    <button type="submit">Valider</button>
+	  </div>
+	</form>
+</div>
+<script th:inline="javascript">
+	var architecture = [[${architecture}]];
+	var configured = [[${configured}]];
+	if(configured){
+		document.getElementById("archi_"+architecture).checked = true;
+	}
+</script>
+</body>
+</html>

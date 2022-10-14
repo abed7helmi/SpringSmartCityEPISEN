@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link th:href="@{/styles/dwp/use.monitor/devices.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title th:text="ConfigurationBI"></title>
+
+</head>
+<body>
+
+<div class="page">
+    <div class="page-header" id="prototype-page-header">
+        <a th:href="@{/reservation/monitoring}" th:style="'text-decoration: none;'"><h3 id="p-header-lTitle">Employee View</h3></a>
+        <h3 id="date_heure" style="margin-left: 10px; color: rgb(34, 43, 119);" th:text="${date_heure}"></h3>
+    </div>
+    <div>
+        <div id="roomnumber">
+            <h2 th:text="${room.getRoom_type()}+' '+${room.getId_room()}"></h2>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px" class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="image"></div>
+                <div class="contai">
+                    <div class="button" id=th:id"">PC</div>
+                    <span id="PC_Room" style="display: none;" th:text="${PC}"/>
+                    <div class="possibi allumer" id="divAllumer">
+                       <span th:if="${activity.isActive()}">
+                            <script>const elt = document.getElementById('divAllumer');
+                            elt.style.backgroundColor = "green";
+                            elt.innerText = "Eteindre";</script></span>
+                        <span th:if="${!activity.isActive()}">
+                            <script>const elt = document.getElementById('divAllumer');
+                            elt.style.backgroundColor = "red";
+                            elt.innerText = "Allumer";</script></span>
+                        <span id="etat" style="display: none;" th:text="${activity.isActive()}"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <a style="text-decoration: none" th:href="@{../consommation/{id_room}(id_room = ${room.getId_room()})}">
+                <h4 style="color: black">Consommation de la salle :</h4>
+                <span id="roomConso" style="display: none;" th:text="${consoRoom}"/>
+                <label id="donneeConso" style="font-size: 130px" th:text="${consoRoom}+'W'"></label>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-12 col-lg-6">
+                    <a style="text-decoration: none" th:href="@{../temperature/{roomId}(roomId = ${room.getId_room()})}">
+                    <h4 style="color: black">Température de la salle :</h4>
+                    <span id="roomId" style="display: none;" th:text="${room.getId_room()}"/>
+                    <label id="donneeTemp" style="font-size: 130px" th:text="${RoomTemp}"></label>
+                    </a>
+                </div>
+
+
+            <div class="col-12 col-lg-6">
+                <a style="text-decoration: none" th:href="@{../luminosite/{id_room}(id_room = ${room.getId_room()})}">
+                <h4 style="color: black">Luminosité de la salle :</h4>
+                <label id="donneeLumi" style="font-size: 130px" th:text="${roomLumi}+'%'"></label>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"/>
+            <feBlend in="SourceGraphic" in2="goo"/>
+        </filter>
+    </defs>
+</svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script th:src="@{/js/dwp/use.monitor/gestionBI.js}"></script>
+</body>
+</html>

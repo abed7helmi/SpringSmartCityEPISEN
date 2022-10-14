@@ -1,0 +1,140 @@
+body{
+    margin: auto;
+    text-align: center;
+
+}
+
+#outer-grid {
+    display: grid;
+    padding: 2px;
+    grid-gap: 0px;
+
+    grid-template-areas:
+    'ah2 ah2 ah2 ai2 ah3 ah3 ai3'
+    'ao1 ao1 ao1 ah7 au3 ao4 ah8'
+    'ao1 ao1 ao1 ah7 au3 ao4 ah8'
+    'ao2 ao2 ao2 ah7 au3 ao4 ah8'
+    'ao2 ao2 ao2 ah7 au3 ao4 ah8'
+    'ah1 ah1 ah1 ai1 ah4 ah4 ai4'
+    'au5 au5 ao6 ah5 ao7 ao8 ah6'
+    'au5 au5 ao6 ah5 ao7 ao8 ah6'
+    'au5 au5 ao6 ah5 ao7 ao8 ah6';
+    background-color: black;
+    width: 1160px;/*1000px*/
+    height: 794px;/*800px*/
+    grid-template-rows: 60px 84px 84px 84px 84px 60px 112px 112px 112px;
+    grid-template-columns: 250px 250px 160px 90px 160px 160px 90px;
+    font-size: 13px;
+    margin: auto;
+    transform: scale(0.8);
+    transform-origin: top;
+}
+
+
+.h1{ grid-area: ah1; }
+.h2{ grid-area: ah2; }
+.h3{ grid-area: ah3; }
+.h4{ grid-area: ah4; }
+.h5{ grid-area: ah5; }
+.h6{ grid-area: ah6; }
+.h7{ grid-area: ah7; }
+.h8{ grid-area: ah8; }
+.i1{ grid-area: ai1; }
+.i2{ grid-area: ai2; }
+.i3{ grid-area: ai3; }
+.i4{ grid-area: ai4; }
+
+.h1,.h2,.h3,.h4,.h5,.h6,.h7,.h8,.i1,.i2,.i3,.i4 {
+   background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.area1 {
+    grid-area: ao1;
+    padding: 0px 2px 2px 0px;
+    border-top-color: #ff0000;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.area2 {
+    grid-area: ao2;
+    padding: 0px 2px 0px 0px;
+    border-bottom-color: #ff0000;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+.area3 {
+    grid-area: au3;
+    padding: 2px 0px 2px 0px;
+    border-left-color: #ff0000;
+    border-left-width: 2px;
+    border-left-style: solid;
+
+}
+.area4 {
+    grid-area: ao4;
+    padding: 2px 0px 2px 2px;
+    border-right-color: #ff0000;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+.area5 {
+    grid-area: au5;
+    padding: 0px 0px 0px 0px;
+    border-top-color: #ff0000;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.area6 {
+    grid-area: ao6;
+    padding: 2px 0px 0px 2px;
+    border-right-color: #ff0000;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+.area7 {
+    grid-area: ao7;
+    padding: 2px 2px 0px 0px;
+    border-left-color: #ff0000;
+    border-left-width: 2px;
+    border-left-style: solid;
+}
+.area8 {
+    grid-area: ao8;
+    padding: 2px 0px 0px 0px;
+    border-right-color: #ff0000;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+.area1, .area2, .area3, .area4, .area5, .area6, .area7, .area8 {
+    text-align: center;
+    background-color: white;
+}
+
+
+
+#ao2,#ao1,#ao3,#ao4,#ao5,#ao6,#au1,#au2{
+    text-align: center;
+    background-color: black;
+    display: grid;
+    grid-gap: 1px;
+
+}
+#ao1 > div, #ao2 > div,#ao3 > div,#ao4 > div,#ao5 > div,#ao6 > div,#au1 > div,#au2 > div {
+    font-size: 80%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ao1 > div { grid-row: 1;}
+#ao2 > div { grid-row: 1;}
+#au2 > div { grid-row: 1;}
+#ao3 > div { grid-column: 1;}
+#ao4 > div { grid-column: 1;}
+#ao5 > div { grid-column: 1;}
+#ao6 > div { grid-column: 1;}

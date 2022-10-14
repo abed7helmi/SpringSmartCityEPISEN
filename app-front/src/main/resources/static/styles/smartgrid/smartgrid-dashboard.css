@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(14, 14, 14);
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#sg-dashboard-header {
+    height: 80px;
+    width: 100%;
+    background-color: #282c3a;
+    display: flex;
+    align-items: center;
+}
+
+#sg-dashboard-links {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1% 0 1%;
+}
+
+#sg-dashboard-links a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#sg-dashboard-body {
+    width: 100%;
+    height: 99%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#sg-dashboard-left-container {
+    display: grid;
+    grid-template-rows: 48% 49%;
+    row-gap: 2%;
+    margin: 2% 1% 1% 1%;
+}
+
+#sg-dashboard-right-container {
+    display: grid;
+    grid-template-rows: 7% 14% 12% 60%;
+    row-gap: 2%;
+    margin: 2% 1% 1% 1%;
+}
+
+.sg-dashboard-card {
+    height: 100%;
+    width: 100%;
+    background-color: #17171a;
+    border: 1px rgba(122, 121, 121, 0.6) solid;
+}
+
+.large-card {
+    display: grid;
+    grid-template-rows: 10% 90%;
+    font-size: 24px;
+}
+
+.large-card .sg-db-card-title {
+    font-size: 18px;
+    border-bottom: 1px rgba(255, 255, 255, 0.25) solid;
+}
+
+.sg-db-card-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.small-card {
+    display: grid;
+}
+
+.sg-db-card-title {
+
+}
+
+.vertical-sep {
+    width: 15px;
+}
+
+#sg-city-balance {
+    display: flex;
+    flex-direction: column;
+}
+
+.small-card .sg-db-card-title .label-title {
+    font-size: 17px;
+}
+
+.small-card .sg-db-card-title .value-title {
+    font-size: 28px;
+}
+
+#sg-frequency-time {
+    grid-template-columns: 50% 50%;
+}
+
+#sg-frequency-form input[type="button"], select {
+    height: 20px;
+    border: 1px rgba(255, 255, 255, 0.55) solid;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+    width: 70px;
+}
+
+#sg-frequency-form input[type="number"] {
+    width: 50px;
+}
+
+#sg-frequency-form input, select{
+    outline: none;
+    background-color: #20282a;
+    color: white;
+}
+
+/* Tables Style Block */
+.sg-dashboard-table {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    border: 1px rgba(151, 127, 178, 0.4) solid;
+    border-collapse: collapse;
+}
+
+.sg-dashboard-table th {
+    font-size: 11px;
+    font-weight: bold;
+    color: #8bb9ff;
+    border-bottom: 1px rgba(151, 127, 178, 0.4) solid;
+}
+
+.sg-dashboard-table tr {
+    text-align: center;
+    height: 50px;
+}
+
+.sg-dashboard-table tbody tr:nth-child(odd){
+    background-color: rgba(0,0,0,0.25);
+}
+
+.sg-dashboard-table tbody tr:nth-child(even){
+    background-color: rgba(53,45,102,0.3);
+}
+
+.sg-dashboard-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.sg-dashboard-table td {
+    font-size: 13px;
+}
+
+#sg-mock-parameters {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#sg-mock-parameters img{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5%;
+}
+
+#sg-mix-requests {
+    overflow: auto;
+    max-height: 40vh;
+}
+
+#sg-productions-table {
+    overflow: auto;
+    max-height: 40vh;
+}
+
+#sg-capacities-table {
+    overflow: auto;
+    max-height: 49vh;
+}
+
+.mock-param {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* animations */
+@keyframes capacity-update {
+    from {color: #29d211;}
+    to {color: white;}
+}
+.real-time-capacity {
+    color: white;
+    font-size: 18px !important;
+    animation-name: capacity-update;
+    animation-duration: 1200ms;
+    font-weight: bold;
+}
+
+
+/* Table Style Block */
+
+@media screen and (min-width: 1700px) {
+    #sg-dashboard-right-container {
+        grid-template-rows: 5% 10% 9% 69%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    #sg-city-balance {
+        grid-template-columns: 80% 20%;
+        font-size: 18px !important;
+    }
+    .small-card .sg-db-card-title .label-title {
+        font-size: 14px;
+    }
+
+    .small-card .sg-db-card-title .value-title {
+        font-size: 22px;
+    }
+}
+

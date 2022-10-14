@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sélectionner le DWP</title>
+
+    <link th:href="@{/styles/dwp/dwpmap/selectDWP.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap" rel="stylesheet">
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+</head>
+<body>
+<header>
+    <div th:replace="fragments/smartgrid/header :: header"></div>
+</header>
+
+<div class="container-selectDWP">
+    <div class="select-form">
+        <h1>Veuillez sélectionner le bâtiment et le DWP que vous souhaitez consulter.</h1>
+
+        <script th:inline="javascript">var action = [[${action}]];</script>
+
+        <form method="post" th:action="@{/dwp/action(action=${action})}">
+            <div class="listLabel">
+                <span class="label">Bâtiment</span>
+                <span class="label">DWP</span>
+            </div>
+
+            <div>
+                <span class="selectList">
+                <select th:name="buildings" id="buildings">
+                    <option th:each="building: ${buildingList}"
+                            th:value="${building.getId_building()}"
+                            type="text" th:text="${building.getBuilding_name()}">
+                    </option>
+                </select>
+                </span>
+                <span class="selectList">
+                <select th:name="dwp" id="dwp">
+                    <option th:each="dwp: ${dwpList}"
+                            th:value="${dwp.getId_dwp()}"
+                            th:text="${'Étage '+dwp.getFloor_number()}">
+                    </option>
+                </select>
+                </span>
+                <button type="submit">OK</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/dwp/dwpmap/selectDWP.js}"></script>
+</body>
+</html>

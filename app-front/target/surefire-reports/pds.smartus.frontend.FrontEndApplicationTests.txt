@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pds.smartus.frontend.FrontEndApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.182 s - in pds.smartus.frontend.FrontEndApplicationTests

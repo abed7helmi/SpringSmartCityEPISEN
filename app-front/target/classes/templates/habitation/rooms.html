@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymleaf/Layout" layout:decorate="habitation/template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div layout:fragment="pageContent">
+
+
+    <div class="container mt-5">
+<!--        <figure class="highcharts-figure">-->
+<!--            <div><h4 class="text-success">Production instantané: <span id="sommeLastProd"></span></h4></div>-->
+<!--            <div id="producteurscharts"></div>-->
+<!--            <p class="highcharts-description">-->
+
+<!--            </p>-->
+<!--        </figure>-->
+
+        <div><h4 class="text-success">Infos Pièce :</span></h4></div>
+        <div>Nom :<span type="text" th:text="${equipments[0].getHouseroom().roomName}"></span></div>
+        <div>surface en m² :<span type="text" th:text="${equipments[0].getHouseroom().surface}"></span></div>
+        <div>Nombre des fenetres :<span type="text" th:text="${equipments[0].getHouseroom().nbWindows}"></span></div>
+    </div>
+
+
+    <div class="container mt-5">
+
+                <figure class="highcharts-figure">
+<!--&lt;!&ndash;                    <span id="sommeLastProd"></span>&ndash;&gt;sommeLastProd-->
+                    <div><h4 class="text-success">Consommation instantanée: <span id="sommeLastConsRoom"></span></h4></div>
+                    <div id="consomdevicescharts"></div>
+                    <p class="highcharts-description">
+
+                    </p>
+                </figure>
+
+    </div>
+
+
+
+    <div class="container mt-5">
+
+        <div class="card">
+            <div class="card-header">Liste des équipements</div>
+            <div class="card-body">
+                <table class="table table-dark">
+                    <tr>
+                        <th>Type</th>
+                        <th>Nom</th>
+                        <th>Puissance</th>
+
+                        <th>Action</th>
+                    </tr>
+
+                    <tr th:each="p:${equipments}">
+
+                        <td th:text="${p.type}"></td>
+                        <td th:text="${p.name}"></td>
+                        <td th:text="${p.power}"></td>
+
+                        <td><a th:href="@{/habitation/equipement/consomption(idEq=${p.id})}" class="btn btn-success">Consulter</a>&nbsp;<a class="btn btn-primary">Configurer</a></td>
+
+
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
+

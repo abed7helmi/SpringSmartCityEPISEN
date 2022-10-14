@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+
+    <link th:href="@{/styles/habitation/bouton.css}" rel="stylesheet" />
+    <!-- Nav Bar -->
+    <link th:href="@{/styles/common/nav-bar.css}" rel="stylesheet">
+    <script th:src="@{/js/common/nav-bar.js}"></script>
+</head>
+<body>
+
+<header id="">
+    <div th:replace="fragments/smartgrid/header :: header"></div>
+</header>
+<div>
+    <h1 style="text-decoration-color : rgb(173,216,230);text-decoration-line  : overline ;text-decoration-style : solid;"> ALERTES SUR LES DEPASSEMENTS ENERGETIQUES</h1>
+</div>
+<div>
+    <div style="margin-top: center;text-align:center;margin-top: 30vh;" >
+         <div style="width: 1500px;  height:400px; border: 2px solid ; text-align: left;">
+             <ul style="list-style-type: none">
+                 <h2 style="color : blue; margin-top:center; text-align: center;"> Habitation en depassement </h2>
+                     <font size=5>
+                     <li><a cible="popup:popup1"> 94000 rue jean gabin </a></li>
+                     <li>94470 place de la boulaie 2</li>
+                     <li>92000 rue de chamelle 20 </li>
+                     <li>91000 allée marchale 1</li>
+                     <li>75020 rue pierre 7</li>
+                     <li>78000 rue michiel bizot 34</li>
+                     <li>75012 avenue hugo</li>
+                     <li>92000 rue de chamelle 20 </li>
+                     <li>91000 allée marchale 1</li>
+                     <li>75020 rue pierre 7</li>
+                     <li>78000 rue michiel bizot 34</li>
+                     <li>75012 avenue hugo</li>
+                     </font>
+
+            </ul>
+         </div>
+    </div>
+</div>
+<div><popup id="popup1">
+    <p>Consommation = 250
+        Seuil:170
+        Depassment: 80</p>
+</popup> </div>
+</body>
+
+<script>
+    function getHabitation()
+    {
+       var ajaxRequest = new XMLHttpRequest();
+       ajaxRequest.onreadystatechange = getHabitation(){
+
+           if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("list").innerHTML = ajaxRequest.responseText;
+           }
+       };
+
+       ajaxRequest.open("GET","http://localhost:8080/habitation/thresholdHouse/" + ,false
+
+    }
+
+</script>
+<script type="text/javascript">
+window.addEventListener("load", function(){
+    setTimeout(
+        function open(event){
+            document.querySelector(".popup").style.display = "block";
+        },
+        2000
+    )
+});
+
+
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+});
+    </script>
+
+
+
+</html>

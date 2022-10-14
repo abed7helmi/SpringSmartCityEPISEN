@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.pds.smartUs.BackEnd.appback.services.habitation.EquipmentServiceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.123 s <<< FAILURE! - in com.pds.smartUs.BackEnd.appback.services.habitation.EquipmentServiceTest
+getEquipmentConsomptionByEquipmentId  Time elapsed: 0.027 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at com.pds.smartUs.BackEnd.appback.services.habitation.EquipmentServiceTest.getEquipmentConsomptionByEquipmentId(EquipmentServiceTest.java:47)
+

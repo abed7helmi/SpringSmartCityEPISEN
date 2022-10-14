@@ -1,0 +1,22 @@
+.page-header {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 -1px 4px black;
+}
+
+#prototype-page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#p-header-lTitle {
+    margin-left: 10px;
+    color: rgb(34, 43, 119);
+}
+
+#p-header-rTitle {
+    margin-right: 10px;
+    color: rgb(34, 43, 119);
+}
